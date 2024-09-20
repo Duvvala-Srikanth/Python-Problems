@@ -1,0 +1,17 @@
+"""Example 1:
+Input: s = "aacecaaa"
+Output: "aaacecaaa"
+Example 2:
+Input: s = "abcd"
+Output: "dcbabcd"
+"""
+class Solution:
+    def shortestPalindrome(self, s: str) -> str:
+        n=len(s)
+        if s==s[::-1]:
+            return s
+        rev=s[::-1]
+        for i in range(n):
+            if s[:n-i]==rev[i:]:
+                return rev[:i]+s
+        return rev+s
